@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const renderer = new THREE.WebGLRenderer();
 
@@ -15,10 +16,13 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
+const orbit = new OrbitControls(camera, renderer.domElement);
+
 const axisHelper = new THREE.AxesHelper(3);
 scene.add(axisHelper);
 
 camera.position.set(0, 2, 5);
+orbit.update();
 
 const boxGeometry = new THREE.BoxGeometry();
 const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
