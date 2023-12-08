@@ -79,6 +79,14 @@ spotLight.angle = 0.2;
 const sLightHelper = new THREE.SpotLightHelper(spotLight);
 scene.add(sLightHelper);
 
+// Method 1
+// scene.fog = new THREE.Fog(0xffffff, 0, 200);
+
+// Method 2
+scene.fog = new THREE.FogExp2(0xffffff, 0.01);
+
+renderer.setClearColor(0xaaaaaa);
+
 const gui = new dat.GUI();
 
 const options = {
